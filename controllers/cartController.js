@@ -1,6 +1,5 @@
-// controllers/cartController.js
-import Cart from '../models/cartModel.js'; // Asegúrate de que este modelo exista
-import Product from '../models/productModel.js'; // Asegúrate de que este modelo exista
+import Cart from '../models/cartModel.js';
+import Product from '../models/productModel.js';
 
 // Crear un carrito
 export const createCart = async (req, res) => {
@@ -30,20 +29,17 @@ export const getCart = async (req, res) => {
 
 // Actualizar o agregar un producto al carrito
 export const updateCartProduct = async (req, res) => {
-    const { quantity } = req.body; // La cantidad se envía en el cuerpo
+    const { quantity } = req.body;
     try {
         const cart = await Cart.findById(req.params.id);
         if (!cart) {
             return res.status(404).json({ error: 'Carrito no encontrado' });
         }
 
-        // Busca el producto en el carrito
         const productIndex = cart.products.findIndex(p => p.productId.toString() === req.params.productId);
         if (productIndex > -1) {
-            // Si el producto ya está en el carrito, actualiza la cantidad
             cart.products[productIndex].quantity += quantity;
         } else {
-            // Si el producto no está, agrégalo
             cart.products.push({ productId: req.params.productId, quantity });
         }
 
