@@ -1,4 +1,3 @@
-// routes/productsRouter.js
 import express from 'express';
 import { getProducts, deleteProduct, updateProduct } from '../controllers/productController.js';
 
