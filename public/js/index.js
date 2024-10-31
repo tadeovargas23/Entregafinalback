@@ -5,7 +5,6 @@ const productForm = document.getElementById('productForm');
 const nameInput = document.getElementById('name');
 const priceInput = document.getElementById('price');
 
-// Escuchar la creación de productos
 productForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -30,7 +29,6 @@ socket.on('productListUpdated', (newProduct) => {
     productList.appendChild(newItem);
 });
 
-// Escuchar cuando un producto es eliminado
 productList.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
         const productId = e.target.closest('li').getAttribute('data-id');
