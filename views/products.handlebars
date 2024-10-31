@@ -1,0 +1,33 @@
+<!-- views/products.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <div>
+        {{#each products}}
+            <div>
+                <h2>{{this.nombre}}</h2>
+                <p>Precio: ${{this.precio}}</p>
+                <p>Descripción: {{this.descripcion}}</p>
+                <p>Categoría: {{this.categoria}}</p>
+                <p>Stock: {{this.stock}}</p>
+            </div>
+        {{else}}
+            <p>No hay productos disponibles.</p>
+        {{/each}}
+    </div>
+
+    <div>
+        {{#if hasPrevPage}}
+            <a href="/products?page={{prevPage}}&limit={{limit}}">Página Anterior</a>
+        {{/if}}
+        {{#if hasNextPage}}
+            <a href="/products?page={{nextPage}}&limit={{limit}}">Siguiente Página</a>
+        {{/if}}
+    </div>
+</body>
+</html>
