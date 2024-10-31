@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { engine } from 'express-handlebars';
 import productsRouter from './routes/productsRouter.js';
-import cartsRouter from './routes/cartsRouter.js'; // Asegúrate de que este sea el nombre correcto
+import cartsRouter from './routes/cartsRouter.js';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import Handlebars from 'handlebars';
 
