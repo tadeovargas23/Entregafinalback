@@ -1,4 +1,3 @@
-// controllers/productController.js
 import Product from '../models/productModel.js';
 
 // Obtener productos
@@ -7,7 +6,7 @@ export const getProducts = async (req, res) => {
 
     const query = {};
     if (category) {
-        query.categoria = category; // Filtramos por la categoría especificada
+        query.categoria = category;
     }
 
     try {
@@ -53,7 +52,7 @@ export const deleteProduct = async (req, res) => {
     const { id } = req.params;
     try {
         await Product.findByIdAndDelete(id);
-        res.status(204).send(); // No hay contenido que devolver
+        res.status(204).send();
     } catch (error) {
         console.error('Error al eliminar producto:', error);
         res.status(500).json({ error: 'Error al eliminar producto' });
